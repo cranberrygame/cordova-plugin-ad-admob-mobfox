@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.cranberrygame.cordova.plugin.ad.admob.mobfox"
+    version="1.0.0">
+	
+    <name>Cordova Admob-MobFox Mediation Plugin</name>
+    <description>Cordova Admob-MobFox Mediation Plugin</description>
+    <author>Sang Ki Kwon (Cranberrygame)</author>		
+    <license>MIT</license>
+    <keywords>cordova,plugin,ad,admob,monetisation,mobfox,mediation</keywords>
+    <repo>https://github.com/cranberrygame/cordova-plugin-ad-admob</repo>
+    <issue>https://github.com/cranberrygame/cordova-plugin-ad-admob/issues</issue> 	
+	<engines>
+	    <engine name="cordova" version=">=3.0.0" />
+	</engines>
+	
+    <!-- android -->
+    <platform name="android">
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity android:name="com.adsdk.sdk.banner.InAppWebView" 
+			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+			
+			<activity android:name="com.adsdk.sdk.video.RichMediaActivity" 
+			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"    
+			android:hardwareAccelerated="false" />
+			
+			<activity android:name="com.adsdk.sdk.mraid.MraidBrowser" 
+			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+	        <uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+			<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+          </config-file>
+          
+        <source-file src="src/android/MobFoxAdSdk_6.0.7.jar" target-dir="libs" />
+     </platform>
+     
+     <!-- ios -->
+     <platform name="ios">
+        <framework src="src/ios/MobFox.framework" custom="true"/>
+        <framework src="AudioToolbox.framework"/>
+        <framework src="AVFoundation.framework"/>
+        <framework src="iAd.framework"/>
+        <framework src="StoreKit.framework"/>
+        <framework src="SystemConfiguration.framework"/>
+        <framework src="MessageUI.framework"/>
+        <framework src="CoreTelephony.framework"/>
+        <framework src="EventKit.framework"/>
+        <framework src="EventKitUI.framework"/>
+        <framework src="AdSupport.framework"/>
+        <framework src="UIKit.framework"/>
+        <framework src="CoreLocation.framework"/>
+        <framework src="MediaPlayer.framework"/>
+        <framework src="Foundation.framework"/>
+        <framework src="CoreGraphics.framework"/>
+	</platform>
+	
+	<dependency id="com.cranberrygame.cordova.plugin.ad.admob" url="https://github.com/cranberrygame/cordova-plugin-ad-admob" />	
+</plugin>
