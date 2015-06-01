@@ -17,30 +17,30 @@
 	
     <!-- android -->
     <platform name="android">
+	
+		<!-- dependency -->
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
 			<activity android:name="com.adsdk.sdk.banner.InAppWebView" 
-			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-			
+			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />			
 			<activity android:name="com.adsdk.sdk.video.RichMediaActivity" 
 			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"    
-			android:hardwareAccelerated="false" />
-			
+			android:hardwareAccelerated="false" />			
 			<activity android:name="com.adsdk.sdk.mraid.MraidBrowser" 
 			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
         </config-file>
-
         <config-file target="AndroidManifest.xml" parent="/*">
 	        <uses-permission android:name="android.permission.INTERNET" />
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 			<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 			<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
-          </config-file>
-          
+          </config-file>          
         <source-file src="src/android/MobFoxAdSdk_6.0.7.jar" target-dir="libs" />
      </platform>
      
      <!-- ios -->
      <platform name="ios">
+	 
+		<!-- dependency -->
         <framework src="src/ios/MobFox.framework" custom="true"/>
         <framework src="AudioToolbox.framework"/>
         <framework src="AVFoundation.framework"/>
@@ -59,5 +59,6 @@
         <framework src="CoreGraphics.framework"/>
 	</platform>
 	
+	<!-- dependency -->
 	<dependency id="com.cranberrygame.cordova.plugin.ad.admob" url="https://github.com/cranberrygame/cordova-plugin-ad-admob" />	
 </plugin>
