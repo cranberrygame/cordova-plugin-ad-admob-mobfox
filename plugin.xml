@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="com.cranberrygame.cordova.plugin.ad.admob.mobfox"
-    version="1.0.0">
+    version="1.0.2">
 	
     <name>Cordova Admob-MobFox Mediation Plugin</name>
     <description>Cordova Admob-MobFox Mediation Plugin</description>
@@ -17,6 +17,7 @@
 	
     <!-- android -->
     <platform name="android">
+		<source-file src="src/android/mobfoxmediationadapter.jar" target-dir="libs" />
 	
 		<!-- dependency -->
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
@@ -34,14 +35,16 @@
 			<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 			<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
           </config-file>          
-        <source-file src="src/android/MobFoxAdSdk_6.0.7.jar" target-dir="libs" />
+        <source-file src="src/android/AdSdk_6.0.8.jar" target-dir="libs" />
+		<source-file src="src/android/simple-xml-2.7.1.jar" target-dir="libs" />
      </platform>
      
      <!-- ios -->
      <platform name="ios">
-	 
-		<!-- dependency -->
-        <framework src="src/ios/MobFox.framework" custom="true"/>
+	
+		<!-- dependency -->			 
+        <source-file src="src/ios/libAdapterSDKMobFox.a" framework="true" />			 
+        <resource-file src="src/ios/MRAID.bundle" />
         <framework src="AudioToolbox.framework"/>
         <framework src="AVFoundation.framework"/>
         <framework src="iAd.framework"/>
